@@ -1,0 +1,13 @@
+name: guisa
+title: guisa
+username: i2saj1-joao-guilherme
+account: i2saj1-joao-guilherme
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 13258224
+bundleId: 9328968
+url: https://i2saj1-joao-guilherme.shinyapps.io/guisa/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: resultados.xlsx
