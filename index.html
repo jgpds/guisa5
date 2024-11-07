@@ -2,28 +2,23 @@
 <html>
 <head>
   <title>Minha Aplicação Shiny</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
+  <script>
+    !function(e,t){function n(e,t){return function(){e.apply(t,arguments)}}function r(e){if("function"!=typeof e)throw new TypeError(e+" is not a function");return e}var i=n(r,this);t.define=i,t.require=i}(function(){var define,module,exports;return function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a="function"==typeof require&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n||e)},l,l.exports,e,t,n,r)}return n[o].exports}for(var i="function"==typeof require&&require,o=0;o<r.length;o++)s(r[o]);return s}({1:[function(e,t,n){window.shiny=e("shiny")},{shiny:2}],2:[function(e,t,n){!function(e,t){"object"==typeof n&&"undefined"!=typeof t?t.exports=e.shiny={}:"function"==typeof define&&define.amd?define(function(){return e.shiny={}}):e.shiny={}}(this,n)}.call(this);</script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/shiny/1.7.1/shiny.min.js"></script>
 </head>
 <body>
   <div id="shinyapp" class="shiny-app"></div>
+  <script>window.shinyAppFile = 'app.R';</script>
   <script>
-    requirejs.config({
-      paths: {
-        shiny: 'https://cdnjs.cloudflare.com/ajax/libs/shiny/1.7.1/shiny.min'
+    shiny.createApp({
+      ui: new shiny.ShinyDocument(),
+      server: function(input, output, session) {
+        Shiny.setOptions({
+          url: window.location.origin + '/'
+        });
+        Shiny.shinyapp.run();
       }
-    });
-    require(["shiny"], function(shiny) {
-      shiny.createApp({
-        ui: new shiny.ShinyDocument(),
-        server: function(input, output, session) {
-          Shiny.setOptions({
-            url: window.location.origin + '/'
-          });
-          Shiny.shinyapp.run();
-        }
-      }, 'shinyapp');
-    });
+    }, 'shinyapp');
   </script>
 </body>
 </html>
